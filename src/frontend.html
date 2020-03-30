@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 3-4</title>
+    <script src="Assignment3-4.js"></script>
+    <style>
+        input.text{
+            margin: 10px;
+            width: 100px;
+            height: 20px;
+        }
+        div.error{
+            color: red;
+        }
+        div.answer{
+            font-weight: bold;
+            font-size: 32px;
+            margin: 10px;
+        }
+        button.myButton{
+            width: 200px;
+            height: 50px;
+            background-color: lightgray;
+            border-color: black;
+            color: black;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="initial_selection">
+        <p>Please select what you would like to do:</p><br/>
+        <p><button onclick="showBMI()" class="myButton">BMI Calculation</button></p><br/>
+        <p><button onclick="showRetirement()" class="myButton">Retirement Age Calculation</button></p>
+    </div>
+    <div id="BMI_calculator" style="display:none;">
+        <div>
+            <p>
+                Enter your height here:<br/>
+                <div id="error_message_height" class="error"></div>
+                <input class="text" type="text" id="feet" placeholder="Feet">
+                <input class="text" type="text" id="inches" placeholder="Inches">
+            </p>
+            <p>
+                Enter your weight here:<br/>
+                <div id="error_message_weight" class="error"></div>
+                <input class="text" type="text" id="weight" placeholder="Pounds">
+            </p>
+            <button onclick="calculateBMI()" class="myButton">Calculate BMI</button>
+            <div id="calculated_BMI" class="answer"></div>
+            <p><button onclick="resetPage()" class="myButton">Return to Selection</button></p>
+        </div>
+    </div>
+    <div id="retirement_age_calculator" style="display:none;">
+        <div>
+            <div id="age_input">
+                <p>Input your age:</p>
+                <div id="error_message_age" class="error"></div>
+                <input class="text" type="text" id="age" placeholder="Ex: 35">
+            </div>
+            <div id="salary_input">
+                <p>Input your salary:</p>
+                <div id="error_message_salary" class="error"></div>
+                <input class="text" type="text" id="salary" placeholder="Ex: 40000">
+            </div>
+            <div id="percent_saved_input">
+                <p>Input the amount you are saving as a percentage:</p>
+                <div id="error_message_percent" class="error"></div>
+                <input class="text" type="text" id="percent_saved" placeholder="Ex: 25">
+            </div>
+            <div id="savings_goal_input">
+                <p>Input the amount you want to save:</p>
+                <div id="error_message_goal" class="error"></div>
+                <input class="text" type="text" id="savings_goal" placeholder="Ex: 100000">
+            </div>
+            <button onclick="calculateRetirement()" class="myButton">Calculate Retirement Age</button>
+            <div id="calculated_retirement" class="answer"></div>
+            <p><button onclick="resetPage()" class="myButton">Return to Selection</button></p>
+        </div>
+    </div>
+</body>
+</html>
