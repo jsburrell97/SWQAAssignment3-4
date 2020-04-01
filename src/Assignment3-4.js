@@ -47,12 +47,7 @@ function calculateBMI(){
     }
 
     if(!error){
-        feet = feet * 12;
-        inches = inches + feet;
-        let meters = inches * 0.025;
-        let kilograms = weight * 0.45;
-        let BMI = kilograms/(Math.pow(meters, 2));
-        BMI = BMI.toFixed(1);
+        let BMI = BMICalculation(feet, inches, weight);
 
         if(BMI < 18.5)
             document.getElementById("calculated_BMI").innerHTML = "Your BMI is " + BMI + " which means you " +
@@ -67,6 +62,18 @@ function calculateBMI(){
             document.getElementById("calculated_BMI").innerHTML = "Your BMI is " + BMI + " which means you " +
                 "are obese.";
     }
+}
+
+/**
+ * @return {string}
+ */
+function BMICalculation(feet, inches, pounds){
+    feet = feet * 12;
+    inches = inches + feet;
+    let meters = inches * 0.025;
+    let kilograms = pounds * 0.45;
+    let BMI = kilograms/(Math.pow(meters, 2));
+    return BMI.toFixed(1);
 }
 
 function calculateRetirement(){
@@ -116,11 +123,7 @@ function calculateRetirement(){
     }
 
     if(!error){
-        percentSaved = percentSaved/100;
-        let amountSavedPerYear = (salary * percentSaved) * 1.35;
-        let yearsToRetirement = savingsGoal/amountSavedPerYear;
-        let retirementAge = age + yearsToRetirement;
-        retirementAge = retirementAge.toFixed(0);
+        let retirementAge = retirementCalculation(percentSaved, salary, savingsGoal, age);
 
         if(retirementAge < 100){
             document.getElementById("calculated_retirement").innerHTML = "You will be " + retirementAge +
@@ -132,3 +135,14 @@ function calculateRetirement(){
         }
     }
 }
+
+function retirementCalculation(percentSaved, salary, savingsGoal, age){
+    percentSaved = percentSaved/100;
+    let amountSavedPerYear = (salary * percentSaved) * 1.35;
+    let yearsToRetirement = savingsGoal/amountSavedPerYear;
+    let retirementAge = age + yearsToRetirement;
+    return retirementAge.toFixed(0);
+}
+
+exports.BMICalculation = BMICalculation;
+exports.retirementCalculation = retirementCalculation;

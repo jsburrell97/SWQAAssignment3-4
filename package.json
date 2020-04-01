@@ -1,0 +1,29 @@
+{
+  "name": "assignment3-4",
+  "version": "1.0.0",
+  "description": "This project is the finalized code for James Seth Burrell's Software Testing and Quality Assurance Assignment 3-4.",
+  "main": "index.js",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.11",
+    "mocha": "^7.1.1",
+    "nyc": "^15.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nyc mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsburrell97/SWQAAssignment3-4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsburrell97/SWQAAssignment3-4/issues"
+  },
+  "homepage": "https://github.com/jsburrell97/SWQAAssignment3-4#readme",
+  "directories": {
+    "test": "test"
+  }
+}

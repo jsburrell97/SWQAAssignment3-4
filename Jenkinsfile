@@ -9,28 +9,14 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                'scripts': {
+                    'test': 'nyc mocha'
+                }
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-            }
-        }
-        stage('Publish Coverage') {
-            when{
-                branch 'master'
-            }
-
-            steps {
-                publishHTML target: [
-                    allowMissing: true,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: 'cover',
-                    reportFiles: 'excoveralls.html',
-                    reportName: 'Coverage Report'
-                ]
             }
         }
     }
